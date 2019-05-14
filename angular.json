@@ -1,0 +1,132 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "thirty-day-challenge": {
+      "root": "apps/thirty-day-challenge/",
+      "sourceRoot": "apps/thirty-day-challenge/src",
+      "projectType": "application",
+      "prefix": "thirty-day-challenge",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:web-build",
+          "options": {
+            "outputPath": "dist/apps/thirty-day-challenge",
+            "index": "apps/thirty-day-challenge/src/index.html",
+            "main": "apps/thirty-day-challenge/src/main.tsx",
+            "polyfills": "apps/thirty-day-challenge/src/polyfills.ts",
+            "tsConfig": "apps/thirty-day-challenge/tsconfig.app.json",
+            "assets": [
+              "apps/thirty-day-challenge/src/favicon.ico",
+              "apps/thirty-day-challenge/src/assets"
+            ],
+            "styles": ["apps/thirty-day-challenge/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/thirty-day-challenge/src/environments/environment.ts",
+                  "with": "apps/thirty-day-challenge/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:web-dev-server",
+          "options": {
+            "buildTarget": "thirty-day-challenge:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "thirty-day-challenge:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/thirty-day-challenge/tsconfig.app.json",
+              "apps/thirty-day-challenge/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/thirty-day-challenge/jest.config.js",
+            "tsConfig": "apps/thirty-day-challenge/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "thirty-day-challenge-e2e": {
+      "root": "apps/thirty-day-challenge-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/thirty-day-challenge-e2e/cypress.json",
+            "tsConfig": "apps/thirty-day-challenge-e2e/tsconfig.e2e.json",
+            "devServerTarget": "thirty-day-challenge:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "thirty-day-challenge:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/thirty-day-challenge-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss",
+      "framework": "react"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "thirty-day-challenge"
+}

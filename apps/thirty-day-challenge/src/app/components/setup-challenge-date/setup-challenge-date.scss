@@ -1,0 +1,46 @@
+div.rounded {
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 0px 2px 6px 3px rgba(0, 0, 0, 0.06);
+  background: rgba(74, 74, 74, 1) !important;
+  color: white !important;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+}
+
+.calendar-top {
+  border-radius: 8px 8px 0px 0px;
+  box-shadow: 0px 2px 6px 3px rgba(0, 0, 0, 0.06);
+  background: rgba(74, 74, 74, 1) !important;
+  color: white !important;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  margin-bottom: 15px !important;
+}
+
+.calendar-bottom {
+  margin-top: 15px !important;
+  border-radius: 0px 0px 8px 8px;
+  box-shadow: 0px 2px 6px 3px rgba(0, 0, 0, 0.06);
+  background: rgba(74, 74, 74, 1) !important;
+  padding-bottom: 25px;
+}
+
+.calendar-item {
+  text-align: center;
+}
+
+.selected-start-date {
+  background-color: rgba(254, 186, 73, 1);
+  border-radius: 8px 8px 8px 8px;
+}
+
+.calendar-disabled {
+  text-align: center;
+  color: lightgray;
+}

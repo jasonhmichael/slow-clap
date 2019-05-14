@@ -1,0 +1,30 @@
+# This is a sample build configuration for Other.
+# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# Master branch automatically builds, tests, and deploys Thirty-Day-Challenge to Dev, Push button to build, test
+# Push Button build and deploy Thirty-Day-Challenge to Test, Push button to build, test
+# Push button build and deploy Thirty-Day-Challenge to Prod, Push button to build
+# Feature branch automatically builds and tests the Dev version of Sonic house, it does not deploy to Dev
+# Feature branch push button to build and test Dev version Budget Registration, it does not deploy to Dev
+image:
+  name: 611585901405.dkr.ecr.us-east-1.amazonaws.com/bpf-bitbucket-build:latest
+  aws:
+    access-key: $AWS_ACCESS_KEY
+    secret-key: $AWS_SECRET_KEY
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Build DEV - Thirty-Day-Challenge
+          caches:
+            - node
+          script:
+            - python3 /usr/local/bin/utils/pre_build.py --env dev
+            - yarn
+            - npm run lint
+            - npm run test
+            - npm run build
+            - python3 /usr/local/bin/aws_s3_deploy.py dev dist/apps/thirty-day-challenge bpf-dev-thirty-day-challenge
+          after-script:
+            - python3 /usr/local/bin/utils/post_build.py --env dev
