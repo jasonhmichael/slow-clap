@@ -3,11 +3,11 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "thirty-day-challenge": {
-      "root": "apps/thirty-day-challenge/",
-      "sourceRoot": "apps/thirty-day-challenge/src",
+    "slow-clap": {
+      "root": "apps/slow-clap/",
+      "sourceRoot": "apps/slow-clap/src",
       "projectType": "application",
-      "prefix": "thirty-day-challenge",
+      "prefix": "slow-clap",
       "schematics": {
         "@nrwl/schematics:component": {
           "style": "scss"
@@ -17,24 +17,24 @@
         "build": {
           "builder": "@nrwl/builders:web-build",
           "options": {
-            "outputPath": "dist/apps/thirty-day-challenge",
-            "index": "apps/thirty-day-challenge/src/index.html",
-            "main": "apps/thirty-day-challenge/src/main.tsx",
-            "polyfills": "apps/thirty-day-challenge/src/polyfills.ts",
-            "tsConfig": "apps/thirty-day-challenge/tsconfig.app.json",
+            "outputPath": "dist/apps/slow-clap",
+            "index": "apps/slow-clap/src/index.html",
+            "main": "apps/slow-clap/src/main.tsx",
+            "polyfills": "apps/slow-clap/src/polyfills.ts",
+            "tsConfig": "apps/slow-clap/tsconfig.app.json",
             "assets": [
-              "apps/thirty-day-challenge/src/favicon.ico",
-              "apps/thirty-day-challenge/src/assets"
+              "apps/slow-clap/src/favicon.ico",
+              "apps/slow-clap/src/assets"
             ],
-            "styles": ["apps/thirty-day-challenge/src/styles.scss"],
+            "styles": ["apps/slow-clap/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/thirty-day-challenge/src/environments/environment.ts",
-                  "with": "apps/thirty-day-challenge/src/environments/environment.prod.ts"
+                  "replace": "apps/slow-clap/src/environments/environment.ts",
+                  "with": "apps/slow-clap/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -57,11 +57,11 @@
         "serve": {
           "builder": "@nrwl/builders:web-dev-server",
           "options": {
-            "buildTarget": "thirty-day-challenge:build"
+            "buildTarget": "slow-clap:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "thirty-day-challenge:build:production"
+              "buildTarget": "slow-clap:build:production"
             }
           }
         },
@@ -69,8 +69,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/thirty-day-challenge/tsconfig.app.json",
-              "apps/thirty-day-challenge/tsconfig.spec.json"
+              "apps/slow-clap/tsconfig.app.json",
+              "apps/slow-clap/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -78,34 +78,34 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "apps/thirty-day-challenge/jest.config.js",
-            "tsConfig": "apps/thirty-day-challenge/tsconfig.spec.json"
+            "jestConfig": "apps/slow-clap/jest.config.js",
+            "tsConfig": "apps/slow-clap/tsconfig.spec.json"
           }
         }
       }
     },
-    "thirty-day-challenge-e2e": {
-      "root": "apps/thirty-day-challenge-e2e",
+    "slow-clap-e2e": {
+      "root": "apps/slow-clap-e2e",
       "projectType": "application",
       "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@nrwl/builders:cypress",
           "options": {
-            "cypressConfig": "apps/thirty-day-challenge-e2e/cypress.json",
-            "tsConfig": "apps/thirty-day-challenge-e2e/tsconfig.e2e.json",
-            "devServerTarget": "thirty-day-challenge:serve"
+            "cypressConfig": "apps/slow-clap-e2e/cypress.json",
+            "tsConfig": "apps/slow-clap-e2e/tsconfig.e2e.json",
+            "devServerTarget": "slow-clap:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "thirty-day-challenge:serve:production"
+              "devServerTarget": "slow-clap:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/thirty-day-challenge-e2e/tsconfig.e2e.json",
+            "tsConfig": "apps/slow-clap-e2e/tsconfig.e2e.json",
             "exclude": ["**/node_modules/**"]
           }
         }
@@ -128,5 +128,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "thirty-day-challenge"
+  "defaultProject": "slow-clap"
 }

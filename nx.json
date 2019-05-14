@@ -1,5 +1,5 @@
 {
-  "npmScope": "thirty-day-challenge",
+  "npmScope": "slow-clap",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -8,10 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "thirty-day-challenge": {
+    "slow-clap": {
       "tags": []
     },
-    "thirty-day-challenge-e2e": {
+    "slow-clap-e2e": {
       "tags": []
     }
   }
